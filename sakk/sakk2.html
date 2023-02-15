@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Sakk</title>
+	<style>
+		body
+		{
+			background-color: blanchedalmond;
+		}
+
+		.fekete
+		{
+			background-color: black;
+		}
+
+		td
+		{
+			width: 75px;
+			height: 75px;
+			background-color: white;
+			border:1px solid black;
+			text-align: center;
+
+			text-transform: uppercase;
+		}
+
+		table
+		{
+			border:3px solid gray;
+			border-collapse: collapse;
+			margin:auto;
+		}
+
+		td{
+			background-repeat: no-repeat;
+		}
+		.feherBastya
+		{
+			background-image: url(./figurak.png);
+			background-size: 300% 300%;
+			background-position: 30% 103%;
+		}
+		.feherFuto
+		{
+			background-image: url(./figurak.png);
+			background-size: 300% 300%;
+			background-position: 70% 103%;
+		}
+		.feherGyalog
+		{
+			background-image: url(./figurak.png);
+			background-size: 300% 300%;
+			background-position: 110% 103%;
+		}
+	</style>
+</head>
+<body>
+	<script>
+		var elso;
+		var sorszam=0;
+		function kattintas(elem)
+		{
+			if(sorszam==0)
+			{
+				if(elem.babu!="")
+				{
+					elso=elem;
+					sorszam++;
+				}
+			}
+			else
+			{
+				console.log(elso.dataset["babu"]);
+				//ha van ott bábu, akkor azt törölni kell
+				if(elem.dataset["babu"]!="")
+				{
+					elem.classList.remove(elem.dataset["babu"]);
+					elem.dataset["babu"]="";
+				}
+				//bábu beillesztése
+				elem.classList.add(elso.dataset["babu"]);
+				elem.dataset["babu"]=elso.dataset["babu"];
+				elem.classList.add(elem.dataset["babu"]);
+				
+				//régi hely törlése
+				elso.dataset["babu"]="";
+				elso.classList.remove(elem.dataset["babu"]);
+				sorszam=0;			
+			}
+			console.log(elem.className);
+			console.log(elem.classList);
+			console.log(elem.dataset["babu"]);
+			console.log(sorszam);
+		}
+	</script>
+	<img src="./figurak.png">
+1188*1280
+594*852
+
+
+	<table>
+		<tr>
+			<td></td><td>A</td><td>B</td><td>C</td><td>D</td><td>e</td><td>f</td><td>g</td><td>h</td>
+		</tr>
+		<tr>
+			<td>1</td>
+			<td class="fekete feherBastya" data-babu="feherBastya" onclick="kattintas(this)"></td>
+			<td class="feherFuto" data-babu="feherFuto" onclick="kattintas(this)"></td>
+			<td class="fekete" data-babu="" onclick="kattintas(this)"></td>
+			<td data-babu="" onclick="kattintas(this)"></td>
+			<td  data-babu="" class="fekete" onclick="kattintas(this)"></td>
+			<td data-babu="" onclick="kattintas(this)"></td>
+			<td data-babu="" class="fekete" onclick="kattintas(this)"></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td class="feherGyalog" data-babu="feherGyalog" onclick="kattintas(this)"></td>
+			<td class="fekete"></td>
+			<td></td>
+			<td class="fekete"></td>
+			<td></td>
+			<td class="fekete"></td>
+			<td></td>
+			<td class="fekete"></td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td class="fekete"></td>
+			<td></td>
+			<td class="fekete"></td>
+			<td></td>
+			<td class="fekete"></td>
+			<td></td>
+			<td class="fekete"></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td></td>
+			<td class="fekete"></td>
+			<td></td>
+			<td class="fekete"></td>
+			<td></td>
+			<td class="fekete"></td>
+			<td></td>
+			<td class="fekete"></td>
+		</tr>
+		<tr>
+			<td>5</td>
+			<td class="fekete"></td>
+			<td></td>
+			<td class="fekete"></td>
+			<td></td>
+			<td class="fekete"></td>
+			<td></td>
+			<td class="fekete"></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>6</td>
+			<td></td>
+			<td class="fekete"></td>
+			<td></td>
+			<td class="fekete"></td>
+			<td></td>
+			<td class="fekete"></td>
+			<td></td>
+			<td class="fekete"></td>
+		</tr>
+		<tr>
+			<td>7</td>
+			<td class="fekete"></td>
+			<td></td>
+			<td class="fekete"></td>
+			<td></td>
+			<td class="fekete"></td>
+			<td></td>
+			<td class="fekete"></td>
+			<td></td>
+		</tr>
+		<tr>
+			<td>8</td>
+			<td></td>
+			<td class="fekete"></td>
+			<td></td>
+			<td class="fekete"></td>
+			<td></td>
+			<td class="fekete"></td>
+			<td></td>
+			<td class="fekete"></td>
+		</tr>
+	</table>
+</body>
+</html>
