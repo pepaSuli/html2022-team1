@@ -6,20 +6,21 @@
 <title>Kovács és Fiai Kft.</title>
 </head>
 <body>
-    <div id="fejlec">
+    <header>
         <h1>Kovács &amp; Fiai Szobafestő és mázoló Kft.</h1>
-        <div id="menu">
+        <nav>
             <ul>
                 <li><a href="index.html">Főoldal</a></li>
                 <li><a href="referenciak.html">Referenciák</a></li>
                 <li><a href="arak.html">Árak</a></li>
                 <li><a href="ajanlat.html">Ajánlatkérés</a></li>
             </ul>
-        </div>
-    </div>
-    <div id="tartalom">
+        </nav>
+    </header>
+    <main>
         <h2>Árak</h2>
         <p>Akció! Visszatérő ügyfeleinknek kedvezményes árat biztosítunk. <a href="#tapeta">Figyelmükbe ajánljuk a tapétázással kapcsolatos árainkat.</a></p>
+        <button onclick="doit()">asdasdasd</button>
         <table>
             <thead>
                 <tr>
@@ -158,9 +159,25 @@
                 </tr>
             </tbody>
         </table>
-    </div>
-    <div id="lablec">
+    </main>
+    <footer>
         <p>&copy;Minden jog fenntartva.</p>
-    </div>
+    </footer>
+<script>
+    let i=true;
+    function doit()
+    {
+        let elem=document.querySelector("main table");
+        if(i)
+        {
+            elem.style.display="none";
+        }
+        else
+        {
+            elem.style.display="table";
+        }
+        i=!i;
+    }
+</script>
 </body>
 </html>
